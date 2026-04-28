@@ -28,17 +28,30 @@ async function main() {
     console.log("✅ Updated frontend/src/constants/contract.js");
   }
 
-  // === Auto-update backend .env ===
+  // === Auto-create/update backend .env ===
   const envPath = path.join(__dirname, '..', 'backend', '.env');
+  const envContent = `PORT=5000\nCONTRACT_ADDRESS=${addr}\n`;
   if (fs.existsSync(envPath)) {
     let env = fs.readFileSync(envPath, 'utf8');
-    env = env.replace(
-      /CONTRACT_ADDRESS=0x[0-9a-fA-F]+/,
-      `CONTRACT_ADDRESS=${addr}`
-    );
+    if (env.includes('CONTRACT_ADDRESS=')) {
+      env = env.replace(
+        /CONTRACT_ADDRESS=0x[0-9a-fA-F]*/,
+        `CONTRACT_ADDRESS=${addr}`
+      );
+    } else {
+      env += `\nCONTRACT_ADDRESS=${addr}\n`;
+    }
     fs.writeFileSync(envPath, env);
-    console.log("✅ Updated backend/.env");
+  } else {
+    fs.writeFileSync(envPath, envContent);
   }
+  console.log("✅ Updated backend/.env");
+
+  console.log("\n" + "=".repeat(50));
+  console.log("🎉 Deployment complete!");
+  console.log("   Contract Address:", addr);
+  console.log("   Network: localhost (Chain ID: 31337)");
+  console.log("=".repeat(50));
 }
 
 main().catch((error) => {
