@@ -37,21 +37,23 @@ Install dependencies from the repository root and each application:
     cd backend && npm install
     cd ../frontend && npm install
 
-In separate terminals:
+Start a local blockchain and deploy the contracts in separate terminals:
 
     npx hardhat node
     npx hardhat run scripts/deploy.js --network localhost
 
-Then start the API and frontend:
+Then start the API and frontend in separate terminals:
 
     cd backend && npm start
     cd ../frontend && npm start
 
-The frontend and backend require local configuration. Use backend/.env.example as the starting point where applicable, and never commit populated environment files or private credentials. The deployment script updates local contract configuration as part of its documented workflow.
+The frontend and backend require local configuration. Use backend/.env.example where applicable, and never commit populated environment files or private credentials. The deployment script updates local contract configuration as part of its workflow.
 
 ## Contract tests
 
-The current root package does not define a runnable test command. The test directory contains the Hardhat contract tests; use the repository's Hardhat configuration and installed dependencies when running them.
+Run the Hardhat tests from the repository root:
+
+    npx hardhat test
 
 ## Local network safety
 
