@@ -1,11 +1,9 @@
-# 🌾 AgriHandshake — Blockchain-Powered Crop Trading Platform
+# AgriHandshake — Crop Trading Platform
 
 > A decentralized platform connecting **farmers** directly with **buyers**, eliminating middlemen through smart contract escrow, transparent pricing, and blockchain-verified delivery.
 
 ![Solidity](https://img.shields.io/badge/Solidity-0.8.28-blue)
-![React](https://img.shields.io/badge/React-18-61DAFB)
 ![Hardhat](https://img.shields.io/badge/Hardhat-Local-yellow)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
@@ -56,10 +54,8 @@ agrihandshake/
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/agrihandshake.git
-cd agrihandshake
-
-# Install all dependencies (root + backend + frontend)
+git clone https://github.com/Parthdhage/Agri-Handshake.git
+cd Agri-Handshake
 npm install
 cd backend && npm install && cd ..
 cd frontend && npm install && cd ..
@@ -115,8 +111,7 @@ Frontend runs on `http://localhost:3000`
    - **Chain ID:** `31337`
    - **Currency:** ETH
 3. **Import test accounts** using private keys from the Hardhat node output
-   - Account #0 (Farmer): `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`
-   - Account #1 (Buyer): `0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d`
+   - Select any account printed by the local Hardhat node. The node provides development-only test accounts.
 
 > ⚠️ These are **test accounts** — never use them on mainnet!
 
@@ -203,6 +198,6 @@ When a new team member clones this repo:
 
 ---
 
-## 📝 License
+## License
 
-MIT
+No license file is currently included. Add a LICENSE file before distributing or reusing this project outside its owner-controlled context.
